@@ -1,4 +1,4 @@
- <?php
+<?php
 /**
  * Tweak and manage media
  *
