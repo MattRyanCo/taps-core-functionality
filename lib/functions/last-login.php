@@ -12,7 +12,7 @@
  * @since        1.0.0
  * @link         https://github.com/capwebsolutions/taps-core-functionality
  * @author       Matt Ryan <matt@capwebsolutions.com>
- * @copyright    Copyright (c) 2026, Cap Web Solutions
+ * @copyright    Copyright (c) 2026, Matt Ryan
  * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
  */
 
