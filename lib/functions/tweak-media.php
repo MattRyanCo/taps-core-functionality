@@ -88,7 +88,7 @@ function set_default_featured_image( $html, $post_id, $post_thumbnail_id, $size,
 	}
 	return $html;
 }
-add_filter( 'post_thumbnail_html','set_default_featured_image', 10, 5 );
+// add_filter( 'post_thumbnail_html','set_default_featured_image', 10, 5 );
  
 function set_default_featured_image_url( $url, $post_id ) {
     if ( empty( get_post_thumbnail_id( $post_id ) ) ) {
@@ -97,7 +97,7 @@ function set_default_featured_image_url( $url, $post_id ) {
     }
     return $url;
 }
-add_filter( 'default_post_thumbnail_url','set_default_featured_image_url', 10, 2 );
+// add_filter( 'default_post_thumbnail_url','set_default_featured_image_url', 10, 2 );
 
 /**
  * Create Custom Image Size
@@ -107,6 +107,8 @@ add_filter( 'default_post_thumbnail_url','set_default_featured_image_url', 10, 2
 function create_custom_image_sizes() {
 	// Add custom image size for front page gallery
 	add_image_size( 'front-car-gallery-size', 266, 177, true );
+	// Image size for car gallery on 'The Cars' interior page
+	add_image_size( 'interior-car-gallery-size', 133, 101, true );
 }
 
 add_action( 'after_setup_theme', 'create_custom_image_sizes' );

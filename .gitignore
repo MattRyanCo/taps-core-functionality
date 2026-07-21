@@ -67,3 +67,5 @@ Thumbs.db
 !(?i).*hold$
 
 *.bak
+
+*.phpHOLD
