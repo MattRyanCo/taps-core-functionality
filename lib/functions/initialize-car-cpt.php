@@ -87,7 +87,10 @@ function tuckerclub_car_post() {
 		'menu_icon'           => 'dashicons-car',
 		'capability_type'     => 'post',
 		'supports'            => ['title', 'editor', 'thumbnail', 'excerpt', 'revisions', 'custom-fields'],
-		'taxonomies'          => ['post_tag'],
+		'taxonomies'          => [
+			'attachment_category',
+			'attachment_tag',
+		],
 		'rewrite'             => [
 			'with_front' => false,
 		],

@@ -112,36 +112,3 @@ function create_custom_image_sizes() {
 }
 
 add_action( 'after_setup_theme', 'create_custom_image_sizes' );
-
-/**
- * Update media library item to extract car number from file and add it as taxonomy. 
- */
-// add_filter( 'mla_add_attachment_metadata', 'tuckerclub_assign_category_from_filename', 10, 2 );
-add_filter( 'mla_update_attachment_metadata_postfilter', 'tuckerclub_assign_category_from_filename', 10, 2 );
-
-function tuckerclub_assign_category_from_filename( $metadata, $post_id ) {
-
-    $file = get_attached_file( $post_id );
-    $filename = basename( $file );
-
-    // Find first 4-digit sequence
-    if ( preg_match( '/(\d{4})/', $filename, $matches ) ) {
-        $code = $matches[1];
-
-        // Taxonomy slug for Att. Category
-        $taxonomy = 'attachment_category';
-
-        // Create term if it doesn't exist
-        $term = term_exists( $code, $taxonomy );
-        if ( ! $term ) {
-            $term = wp_insert_term( $code, $taxonomy );
-        }
-
-        // Assign term to attachment
-        if ( ! is_wp_error( $term ) ) {
-            wp_set_object_terms( $post_id, intval( $term['term_id'] ), $taxonomy, false );
-        }
-    }
-
-    return $metadata;
-}
